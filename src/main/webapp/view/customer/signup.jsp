@@ -1,73 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShopKart | Sign Up</title>
-    <link rel="stylesheet" href="../../css/signup.css">
+    <title>ShopKart | Login</title>
+    <link rel="stylesheet" href="../../css/login.css">
     <link rel="stylesheet" href="../../css/colorScheme.css" />
-    <style>
-    	.error {
-    		display : flex;
-    		flex-direction : column;
-    		justify-content : center;
-    		align-items : center;
-    	}
-    	.error h3 {
-    		color : red;
-    	}
-    </style>
 </head>
 <body>
-	<form action="/signup" method="post">
-	    <div class="signup-container">
-	    	<% String msg = (String)request.getParameter("msg"); %>
-			<% if (msg != null && msg.equals("failed")) { %>
-				<div class="error">
-					<h3>Account already exists with the given E-mail!</h3>
-					<h3>Please login or use another E-mail</h3>
-				</div>
-			<% } %>
-	      <h1>Sign Up</h1>
-	        <div class="form-group">
-	          <input type="text" name="name" placeholder="Name" required />
-	        </div>
+	<form action="/login" method="get">
+		<% String msg = request.getParameter("msg"); %>
+		<% if (msg != null && msg.equals("failed")) { %>
+			<h3 id="custom-msg">Invalid E-mail or Password!</h3>
+		<% } %>
+		
+		<% String logout = request.getParameter("logout"); %>
+		<% if (logout != null && logout.equals("true")) { %>
+			<h3 id="custom-msg">You've been logged out!</h3>
+		<% } %>
+		
+	    <div class="login-container">
+	      <h1>Login</h1>
 	        <div class="form-group">
 	          <input type="email" name="email" placeholder="Email" required />
 	        </div>
 	        <div class="form-group">
-	          <input
-	            type="tel"
-	            name="phone"
-	            placeholder="Phone Number"
-	            pattern="[0-9]{10}"
-	            required
-	          />
+	          <input type="password" name="password" placeholder="Password" required />
 	        </div>
 	        <div class="form-group">
-	          <textarea
-	            name="address"
-	            placeholder="Address"
-	            rows="3"
-	            required
-	          ></textarea>
-	        </div>
-	        <div class="form-group">
-	          <input
-	            type="password"
-	            name="password"
-	            placeholder="Password"
-	            required
-	          />
-	        </div>
-	        <div class="form-group">
-	          <button type="submit" class="btn">Create Account</button>
+	          <button type="submit" class="btn">Log in</button>
 	        </div>
 	        <div class="extra-links">
-	          <p>Already have an account?</p>
-	          <a href="/"><p>Click to login</p></a>
+	          <p>New to this web site?</p>
+	          <a href="/signup"><p>Create account</p></a>
 	        </div>
 	    </div>
     </form>
