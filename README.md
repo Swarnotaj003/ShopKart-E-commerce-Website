@@ -1,10 +1,14 @@
 # ShopKart : E-commerce Website
 
-## About ❓
+## About 💬
 This is a simple e-commerce website implemented using the `Spring Boot` framework in Java, by a group of five members, namely `Spring Spartans`. This group project is assigned under `Information Processing for Web` in 5th semester of BTech (IT), `University of Calcutta`
 
-## Project Status 🏳
-![Version](https://img.shields.io/badge/Version%20no.-v1.0-blue)  ![Type](https://img.shields.io/badge/Version%20type-Beta-yellow)  ![Commit No.](https://img.shields.io/badge/Released%20on-Commit%20no.%2075-green) ![Status](https://img.shields.io/badge/Status-Ongoing%20Updates-orange)
+## Project Status 🚩
+![Status](https://img.shields.io/badge/Status-Awaiting%20deployment-purple)
+
+![Version](https://img.shields.io/badge/Version%20no.-v1.0-blue)  ![Type](https://img.shields.io/badge/Version%20type-Beta-ffc107)  ![Commit No.](https://img.shields.io/badge/Released%20on-Commit%20no.%2075-orange) 
+
+![Version](https://img.shields.io/badge/Version%20no.-v2.0-blue)  ![Type](https://img.shields.io/badge/Version%20type-Stable-005f00)  ![Commit No.](https://img.shields.io/badge/Released%20on-Commit%20no.%2012X-orange) 
 
 ## Tech Stack 👨‍💻
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=flat&logo=openjdk&logoColor=white)
@@ -16,28 +20,32 @@ This is a simple e-commerce website implemented using the `Spring Boot` framewor
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apache-maven&logoColor=white)
 ---
 
-## Completed stages ✅
-- Folder structure & configuration
-- Basic Web Design
-- Model classes for Product, Customer & CartItem
-- Repository classes for Product, Customer & CartItem
-- Service classes for Product, Customer & CartItem 
-- Controller classes for Product, Customer & CartItem 
-- Exception handling & Custom HTTP Error pages
-- Classes for SecurityConfig & PasswordEncoder
-- Rebranding the website with a cooler design
-- Utility for password validation
-- Admin to get its login page & dashboard
-- Customers now can place orders and view their summary & history
-- Introducing site map for customers
-- Model classes for Order and Admin
-- Repository classes for Order and Admin
-- Consequent changes to existing view pages 
+## Key Features 🌟
+1. `Customer Management` - Login, Sign Up, View & Update Profile
+2. `Product Catalog` - Display of products, Search by name, Filter by category
+3. `Shopping Cart` - Add products to cart, Increase & decrease quantity
+4. `Order Management*` - Place orders from cart, Buy again, Cancel orders, Detailed order list & summary
+5. `Admin Dashboard` - Login (with a security key), Sales insight through analytics, Add or update products, View customers, Update orders
 
-## Ongoing stages ⏳
-- Service classes for Order and Admin
-- Controller classes for Order and Admin
-- Consequent changes to existing Service & Controller classes
+> \* This project is purely made for educational purpose and not meant to be deployed for production. It assumes that payments are made instantly on placing orders as this project is not integrated with a payment gateway.
+---
+
+## Summary of Endpoints 📝
+
+| Endpoint                              | View Rendered                      |
+|---------------------------------------|------------------------------------|
+| `/`                                   | Login page for customer            |
+| `/signup`                             | Sign-up page for customer          |
+| `/update`                             | Form to update customer profile    |
+| `/product`                            | Product Catalogue                  |
+| `/product/category/{category}`        | Filter products by category        |
+| `/product/search?prefix={prefix}`     | Search results for products by name|
+| `/product/{id}`                       | Product details                    |
+| `/cartitem/cart`                      | Customer's cart                    |
+| `/order/history`                      | Customer's order history/list      |
+| `/order/summary/{id}`                 | Summary of order placed            |
+| `/admin`                              | Login page for Admin               |
+| `/admin/dashboard`                    | Admin Dashboard                    |
 ---
 
 ## Prerequisites 🛠️
