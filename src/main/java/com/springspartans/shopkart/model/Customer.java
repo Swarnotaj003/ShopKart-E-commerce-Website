@@ -2,12 +2,17 @@ package com.springspartans.shopkart.model;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -42,6 +47,12 @@ public class Customer {
 	
 	@Column(columnDefinition = "TIMESTAMP DEFAULT NULL")
 	private Timestamp last_login_date;
+	
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private Set<CartItem> cartItems = new HashSet<>();
+    
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private Set<Order> orders = new HashSet<>();
 	
 	public Customer() {
 	}
