@@ -2,8 +2,11 @@ package com.springspartans.shopkart.model;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -49,10 +52,12 @@ public class Customer {
 	private Timestamp last_login_date;
 	
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<CartItem> cartItems = new HashSet<>();
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<CartItem> cartItems = new ArrayList<>();
     
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<Order> orders = new HashSet<>();
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Order> orders = new ArrayList<>();
 	
 	public Customer() {
 	}
